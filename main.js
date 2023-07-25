@@ -52,8 +52,12 @@ class LinkedList {
         let lastNode;
         let currentNode = this.head
         while(currentNode){
-
+            if(currentNode.next === null){
+                lastNode = currentNode
+            }
+            currentNode = currentNode.next
         }
+        return lastNode
     }
 
     //clear
@@ -84,8 +88,6 @@ list.insertFirst('nodeOne')
 list.insertFirst('nodeTwo')
 list.insertFirst('nodeThree')
 console.log('LIST: ',list)
-list.size()
-list.getFirst()
-
-console.log('getAt(2)',list.getAt(0))
-//list.getLast()
+list.size() //WORKS
+list.getFirst() // WORKS
+console.log('getLast: ',list.getLast())
