@@ -21,11 +21,13 @@ class LinkedList {
     constructor(){
         this.head = null
     }
+
     //insertFirst
     insertFirst(data){
         const newHead = new Node(data,this.head)
-       
+        this.head = newHead
     }
+
     //size
     size(){
         let counter = 0
@@ -36,54 +38,54 @@ class LinkedList {
             currentNode = currentNode.next
       
         }
-        console.log(`list size: ${counter}`)
         return counter
     }
+
     //getFirst
     getFirst(){
-       // console.log(`First Node: ${this.head}`)
+      
         return this.head
     }
+
     //getLast
+    getLast(){
+        let lastNode;
+        let currentNode = this.head
+        while(currentNode){
+
+        }
+    }
+
     //clear
     clear(){
         this.head = null
     }
-    //removeFirst
-    //removeLast
 
+    //removeFirst
+    removeFirst(){
+        const secondNode = this.head.next
+        this.head = secondNode
+    }
+
+    getAt(position){
+    }
+
+    //removeLast
     //insertLast
     //getAtPosition
-    getAt(position){
-        let foundNode;
-        let counter = 0
-        let currentNode = this.head
-        while(currentNode){
-            currentNode = currentNode.next
-            counter++
-            if(counter===position){
-                node = currentNode
-                return foundNode
-            }
-        }
-
-    }
     //removeAtPosition
-
     //insertAt
 
 }
 
 const list = new LinkedList()
-const a = new Node ('firstNode')
-const b = new Node ('secondNode')
-const c = new Node ('thirdNode')
 
-list.insertFirst(a)
-list.insertFirst(b)
-list.insertFirst(c)
-console.log(list)
+list.insertFirst('nodeOne')
+list.insertFirst('nodeTwo')
+list.insertFirst('nodeThree')
+console.log('LIST: ',list)
 list.size()
 list.getFirst()
-console.log(list.getAt(2))
+
+console.log('getAt(2)',list.getAt(0))
 //list.getLast()
