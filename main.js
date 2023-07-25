@@ -75,6 +75,9 @@ class LinkedList {
     }
 
     //removeLast
+    removeLast(){
+
+    }
     //insertLast
     //getAtPosition
     //removeAtPosition
@@ -88,6 +91,9 @@ list.insertFirst('nodeOne')
 list.insertFirst('nodeTwo')
 list.insertFirst('nodeThree')
 console.log('LIST: ',list)
-list.size() //WORKS
+console.log('list size Before removeLast',list.size()) //WORKS
 list.getFirst() // WORKS
-console.log('getLast: ',list.getLast())
+list.getLast() //WORKS
+list.removeLast()
+console.log('LIST after removeLast: ',list)
+console.log('list size should be 2: ',list.size()) //WORKS
