@@ -20,6 +20,7 @@ class Node {
 class LinkedList {
     constructor(){
         this.head = null
+       
     }
 
     //insertFirst
@@ -69,17 +70,42 @@ class LinkedList {
     removeFirst(){
         const secondNode = this.head.next
         this.head = secondNode
+         
     }
 
+    //getAtPosition
     getAt(position){
+        let foundNode;
+        let counter = 1
+        let currentNode = this.head
+        while(currentNode){
+            if(counter === position){
+                foundNode = currentNode
+                return foundNode
+            }
+            counter++
+            currentNode = currentNode.next
+            
+        }
     }
 
     //removeLast
     removeLast(){
-
+        if(!this.head){
+            return
+        }
+        if(!this.head.next){
+            this.head = null
+        }
+        let previous = this.head
+        let node = this.head.next
+        while(node.next){
+            previous = node
+            node = node.next
+        }
+        previous.next = null
     }
     //insertLast
-    //getAtPosition
     //removeAtPosition
     //insertAt
 
@@ -94,6 +120,9 @@ console.log('LIST: ',list)
 console.log('list size Before removeLast',list.size()) //WORKS
 list.getFirst() // WORKS
 list.getLast() //WORKS
-list.removeLast()
+//list.removeFirst() // WORKS
+//list.removeLast() // WORKS
 console.log('LIST after removeLast: ',list)
-console.log('list size should be 2: ',list.size()) //WORKS
+console.log('list size should be 3: ',list.size()) //WORKS
+console.log('list at 3',list.getAt(3)) // WORKS
+console.log(list.sizeOfList)
