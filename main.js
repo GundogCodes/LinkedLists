@@ -120,9 +120,21 @@ class LinkedList {
     }
     //removeAtPosition
     removeAt(position){
-        
+        if (!this.head) {
+            return;
+          }
+      
+          if (index === 0) {
+            this.head = this.head.next;
+            return;
+          }
+          const previous = this.getAt(position-1) //this keyword to use class methods on itself!
+          if(!previous || !previous.next){
+            return
+          }
+          previous.next = previous.next.next
     }
-    //insertAt
+    //insertAtPosition
 
 }
 
@@ -131,13 +143,18 @@ const list = new LinkedList()
 list.insertFirst('nodeOne')
 list.insertFirst('nodeTwo')
 list.insertFirst('nodeThree')
-console.log('LIST: ',list)
+//console.log('LIST: ',list)
 list.size() //WORKS
 list.getFirst() // WORKS
 list.getLast() //WORKS
 //list.removeFirst() // WORKS
 //list.removeLast() // WORKS
+list.getAt(1) // WORKS
 list.size()//WORKS
-list.getAt(3) // WORKS
-console.log(list.sizeOfList)
 list.insertLast('gaga') //WORKS
+list.removeAt(2)
+console.log('list size should be 3 ', list.size())
+
+console.log('list at 1',list.getAt(1))
+console.log('list at 2',list.getAt(2))
+console.log('list at 3',list.getAt(3))
