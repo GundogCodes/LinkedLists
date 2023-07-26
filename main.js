@@ -124,7 +124,7 @@ class LinkedList {
             return;
           }
       
-          if (index === 0) {
+          if (position === 0) {
             this.head = this.head.next;
             return;
           }
@@ -135,7 +135,21 @@ class LinkedList {
           previous.next = previous.next.next
     }
     //insertAtPosition
-
+    insertAt(data,position){
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+          }
+      
+          if (position === 0) {
+            this.head = new Node(data, this.head);
+            return;
+          }
+      
+          const previous = this.getAt(position - 1) || this.getLast();
+          const node = new Node(data, previous.next);
+          previous.next = node;
+    }
 }
 
 const list = new LinkedList()
@@ -143,18 +157,14 @@ const list = new LinkedList()
 list.insertFirst('nodeOne')
 list.insertFirst('nodeTwo')
 list.insertFirst('nodeThree')
-//console.log('LIST: ',list)
+
 list.size() //WORKS
 list.getFirst() // WORKS
 list.getLast() //WORKS
-//list.removeFirst() // WORKS
-//list.removeLast() // WORKS
+list.removeFirst() // WORKS
+list.removeLast() // WORKS
 list.getAt(1) // WORKS
 list.size()//WORKS
 list.insertLast('gaga') //WORKS
-list.removeAt(2)
-console.log('list size should be 3 ', list.size())
-
-console.log('list at 1',list.getAt(1))
-console.log('list at 2',list.getAt(2))
-console.log('list at 3',list.getAt(3))
+list.removeAt(2) //WORKS
+list.insertAt('lady',2) //WORKS
