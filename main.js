@@ -106,7 +106,22 @@ class LinkedList {
         previous.next = null
     }
     //insertLast
+    insertLast(data){
+        let newLastNode = new Node(data)
+
+        let currentNode = this.head
+        while(currentNode){
+            if(currentNode.next === null){
+                currentNode.next = newLastNode
+            }
+            currentNode = currentNode.next
+        }
+
+    }
     //removeAtPosition
+    removeAt(position){
+        
+    }
     //insertAt
 
 }
@@ -117,12 +132,12 @@ list.insertFirst('nodeOne')
 list.insertFirst('nodeTwo')
 list.insertFirst('nodeThree')
 console.log('LIST: ',list)
-console.log('list size Before removeLast',list.size()) //WORKS
+list.size() //WORKS
 list.getFirst() // WORKS
 list.getLast() //WORKS
 //list.removeFirst() // WORKS
 //list.removeLast() // WORKS
-console.log('LIST after removeLast: ',list)
-console.log('list size should be 3: ',list.size()) //WORKS
-console.log('list at 3',list.getAt(3)) // WORKS
+list.size()//WORKS
+list.getAt(3) // WORKS
 console.log(list.sizeOfList)
+list.insertLast('gaga') //WORKS
